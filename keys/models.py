@@ -12,7 +12,8 @@ class Keys(models.Model):
         return self.name
     
 class Scale(models.Model):
-    tone = 
+    key = models.ForeignKey(Key, on_delete=models.CASCADE, related_name="scales")
+    degrees = models.JSONField()  # e.g., ["C", "D", "E", "F", "G", "A", "B"]
 
     def __str__(self):
         return f"{self.key.name} Scale"
