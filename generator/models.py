@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from keys import constants
+from generator import constants
 
 class Keys(models.Model):
     name = models.CharField(max_length=8)  # e.g., "C Major"
