@@ -1,6 +1,35 @@
 {% extends "base.html" %}
 
-{% block content %} 
-    <h1>Chord Progressions Generator</h1>
+{% block content %}
+<h1>Chord Progression Generator</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="tonic">Tonic:</label>
+    <select name="tonic" id="tonic">
+        {% for note in notes %}
+        <option value="{{ note }}">{{ note }}</option>
+        {% endfor %}
+    </select>
     
-{% endblock content %}
+    <label for="genre">Genre:</label>
+    <select name="genre" id="genre">
+        {% for genre in genres %}
+        <option value="{{ genre }}">{{ genre }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="num_chords">Number of Chords (3-8):</label>
+    <input type="number" name="num_chords" id="num_chords" min="3" max="8" value="4">
+    
+    <button type="submit" class="button">Generate Progression</button>
+</form>
+
+{% if progression_data %}
+<h2>Generated Chord Progression</h2>
+<p><strong>Tonic:</strong> {{ progression_data.tonic }}</p>
+<p><strong>Mode:</strong> {{ progression_data.mode }}</p>
+<p><strong>Progression:</strong> {{ progression_data.progression|join:" - " }}</p>
+<p><strong>Chords:</strong> {{ progression_data.chords|join:", " }}</p>
+{% endif %}
+{% endblock %}
