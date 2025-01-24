@@ -48,11 +48,15 @@ CHORD_TYPES = {
   "♭VII": "major",
 }
 
-ROMAN_TO_DEGREE = {
-  "I": 1, "ii": 2, "iii": 3, "IV": 4, "V": 5, "vi": 6, "vii°": 7,
-  "i": 1, "♭II": 2, "♭III": 3, "♭VII": 7, "iv": 4, "i°": 1,
-}
+#ROMAN_TO_DEGREE = {
+#  "I": 1, "ii": 2, "iii": 3, "IV": 4, "V": 5, "vi": 6, "vii°": 7,
+#  "i": 1, "♭II": 2, "♭III": 3, "♭VII": 7, "iv": 4, "i°": 1,
+#}
 
+ROMAN_TO_DEGREE = {
+  "I":1, "i":1, "II":2, "ii":2, "♭II": 2, "III":3, "iii": 3, "♭III": 3,
+  "IV": 4, "iv": 4, "V":5, "v":5, "VI":6, "vi":6, "vii°": 7, "♭VII": 7,
+}
 TONES = {
     ("Major","Major"),
     ("Minor","Minor"),

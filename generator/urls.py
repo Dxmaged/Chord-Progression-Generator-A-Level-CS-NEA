@@ -1,8 +1,8 @@
 from django.urls import path, include
 
-app_name = "generator"
-
 from . import views
+
+app_name = "generator"
 
 urlpatterns = [
     path("", views.homepage, name="homepage"),
