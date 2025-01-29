@@ -3,18 +3,26 @@ from .constants import GENRES_MODES, DEFAULT_PROGRESSION, NOTES, MODE_STEPS, CHO
 
 def generate_progression(tonic, genre, num_chords):
     mode = GENRES_MODES.get(genre)
-    progression_template = DEFAULT_PROGRESSION.get(genre, "I - IV - V").split(" - ")
+    # Randomly select a progression for the genre
+    progression_template = random.choice(DEFAULT_PROGRESSION.get(genre, ["I - IV - V"]))
+    progression_template = progression_template.split(" - ")
+    
+    # Repeat the progression to match or exceed the desired number of chords
+    repeated_template = (progression_template * ((num_chords // len(progression_template)) + 1))[:num_chords]
+    
     scale = generate_scale(tonic, mode)
     chords = [
         get_chord_from_scale(scale, ROMAN_TO_DEGREE[symbol], symbol)
-        for symbol in progression_template
+        for symbol in repeated_template
     ]
+    
     return {
         "tonic": tonic,
         "mode": mode,
-        "progression": progression_template,
-        "chords": chords[:num_chords],  # Adjust length to num_chords
+        "progression": repeated_template,
+        "chords": chords,  # Return the full repeated chords
     }
+
 
 def generate_scale(tonic, mode):
     tonic_index = NOTES.index(tonic)

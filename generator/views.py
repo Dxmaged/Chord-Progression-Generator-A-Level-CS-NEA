@@ -14,3 +14,5 @@ def homepage(request):
     
     return render(request, "homepage.html", {"notes": notes, "genres": genres})
 
+def help_view(request):
+    return render(request, "help.html")

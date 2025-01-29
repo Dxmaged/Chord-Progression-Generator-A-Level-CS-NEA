@@ -21,4 +21,5 @@ from generator import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
+    path('help', views.help_view, name='help')
 ]

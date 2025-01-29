@@ -1,0 +1,20 @@
+{% extends "base.html" %}  <!-- Inherit from your main layout if you have one -->
+
+{% block content %}
+<h1>How to Use the Chord Progression Generator?</h1>
+
+<p>Follow these steps to generate a chord progression:</p>
+
+<ol>
+    <li>Select a tonic (the key of your progression).</li>
+    <li>Choose a genre (Pop, Jazz, Rock, etc.).</li>
+    <li>Enter the number of chords you want (between 3 and 8).</li>
+    <li>Click the "Generate Progression" button.</li>
+    <li>Your chord progression will appear below!</li>
+</ol>
+
+<p>Need more help? Contact us at <a href="mailto:dontcontactus@nigga.com">dontcontactus@nigga.com</a></p>
+
+<a href="{% url 'homepage' %}">Back to Generator</a> <!-- Change 'home' to your actual homepage URL name -->
+
+{% endblock %}

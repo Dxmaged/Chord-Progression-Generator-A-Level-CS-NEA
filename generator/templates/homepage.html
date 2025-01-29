@@ -4,7 +4,7 @@
 <div class="image-container">
     <img src="https://clipart-library.com/images/pTqrE5qec.png" alt="keyboard">
   </div>
-<h1>Chord Progression Generator</h1>
+<h1>Chrd</h1>
 
 <form method="post">
     {% csrf_token %}
@@ -27,6 +27,7 @@
     
     <button type="submit" class="button">Generate Progression</button>
 </form>
+<a href="{% url 'help' %}">Need Help?</a>
 
 {% if progression_data %}
 <h2>Generated Chord Progression</h2>

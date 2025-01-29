@@ -10,16 +10,90 @@ GENRES_MODES = {
   "Experimental": "Locrian",
 }
 
+#DEFAULT_PROGRESSION = {
+#  "Pop": "I - V - vi - IV",
+#  "Jazz": "ii - V - I",
+#  "Blues": "I - IV - V",
+#  "Flemenco": "i - ♭II - ♭III",
+#  "Middle Eastern": "i - ♭II - ♭VII",
+#  "Dreamy": "I - II - V - I",
+#  "Rock": "I - IV - V - ♭VII",
+#  "Ballad": "i - VI - III - VII",
+#  "Experimental": "i° - ♭II - iv",
+#}
 DEFAULT_PROGRESSION = {
-  "Pop": "I - V - vi - IV",
-  "Jazz": "ii - V - I",
-  "Blues": "I - IV - V",
-  "Flemenco": "i - ♭II - ♭III",
-  "Middle Eastern": "i - ♭II - ♭VII",
-  "Dreamy": "I - II - V - I",
-  "Rock": "I - IV - V - ♭VII",
-  "Ballad": "i - VI - III - VII",
-  "Experimental": "i° - ♭II - iv",
+    "Pop": [
+        "I - V - vi - IV",
+        "I - vi - IV - V",
+        "vi - IV - I - V",
+        "I - IV - V - IV",
+        "I - V - IV - V",
+        "IV - I - V - vi",
+    ],
+    "Jazz": [
+        "ii - V - I",
+        "I - vi - ii - V",
+        "iii - vi - ii - V",
+        "ii - V - I - VI",
+        "I - VI - ii - V",
+        "IV - ♯iv° - V - I",
+    ],
+    "Blues": [
+        "I - IV - V",
+        "I - IV - I - V",
+        "I7 - IV7 - V7",
+        "I - IV - I - V - IV - I",
+        "I - ♭III - IV - ♭V - V",
+        "I - IV - V - IV",
+    ],
+    "Flamenco": [
+        "i - ♭II - ♭III",
+        "i - ♭VII - ♭VI - ♭VII",
+        "i - ♭VI - ♭VII - ♭II",
+        "i - ♭VII - ♭II",
+        "i - ♭II - V - i",
+        "i - ♭III - ♭VII - ♭II",
+    ],
+    "Middle Eastern": [
+        "i - ♭II - ♭VII",
+        "i - ♭II - V",
+        "i - ♭VII - i",
+        "i - IV - ♭II",
+        "i - ♭VII - ♭II - ♭VI",
+        "i - ♭VI - i - V",
+    ],
+    "Dreamy": [
+        "I - II - V - I",
+        "I - V - IV - I",
+        "I - IV - vi - ii",
+        "I - IV - V - IV",
+        "I - ii - IV - I",
+        "I - IV - I - V",
+    ],
+    "Rock": [
+        "I - IV - V - ♭VII",
+        "I - V - IV",
+        "I - ♭VII - IV",
+        "I - IV - V",
+        "vi - IV - I - V",
+        "I - IV - ♭VII - IV",
+    ],
+    "Ballad": [
+        "i - VI - III - VII",
+        "I - V - vi - IV",
+        "i - ♭VI - ♭III - ♭VII",
+        "I - IV - vi - V",
+        "i - VI - iv - v",
+        "i - ♭VII - ♭VI - V",
+    ],
+    "Experimental": [
+        "i° - ♭II - iv",
+        "i - ♭V - II",
+        "i - V7 - ♭VI",
+        "i - ♭VII - ♭II - V",
+        "i° - ♭III - ♭V - i",
+        "i - ♭IV - VI - i",
+    ],
 }
 
 NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
@@ -54,9 +128,15 @@ CHORD_TYPES = {
 #}
 
 ROMAN_TO_DEGREE = {
-  "I":1, "i":1, "II":2, "ii":2, "♭II": 2, "III":3, "iii": 3, "♭III": 3,
-  "IV": 4, "iv": 4, "V":5, "v":5, "VI":6, "vi":6, "vii°": 7, "♭VII": 7,
+    "I": 1, "i": 1,
+    "II": 2, "ii": 2, "♭II": 2, "♯ii": 2,
+    "III": 3, "iii": 3, "♭III": 3,
+    "IV": 4, "iv": 4, "♯iv°": 4, "♭IV": 4,
+    "V": 5, "v": 5,
+    "VI": 6, "vi": 6, "♭VI": 6,
+    "VII": 7, "vii": 7, "vii°": 7, "♭VII": 7,
 }
+
 TONES = {
     ("Major","Major"),
     ("Minor","Minor"),
