@@ -25,11 +25,16 @@ def generate_progression(tonic, genre, num_chords):
 
 
 def generate_scale(tonic, mode):
+    # Get the index of the tonic note in the NOTES list
     tonic_index = NOTES.index(tonic)
+    
+    # Retrieve the steps for the given mode (default to Ionian if mode is unknown)
     steps = MODE_STEPS.get(mode, MODE_STEPS["Ionian"])
+    
+    # Generate the scale by applying mode steps to the tonic note
     return [NOTES[(tonic_index + step) % 12] for step in steps]
 
 def get_chord_from_scale(scale, degree, chord_symbol):
-    base_note = scale[degree - 1]
-    chord_type = CHORD_TYPES.get(chord_symbol, "major")
-    return f"{base_note} ({chord_type})"
+    base_note = scale[degree - 1]  # Find the root note of the chord
+    chord_type = CHORD_TYPES.get(chord_symbol, "major")  # Determine the chord type (default to major)
+    return f"{base_note} ({chord_type})"  # Return chord notation
