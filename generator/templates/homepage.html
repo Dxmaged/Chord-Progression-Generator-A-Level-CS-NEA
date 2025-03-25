@@ -21,13 +21,23 @@
         <option value="{{ genre }}">{{ genre }}</option>
         {% endfor %}
     </select>
+
+    <button type="button" id="randomize_button">Randomise</button><br>    
     
     <label for="num_chords">Number of Chords (3-8):</label>
     <input type="number" name="num_chords" id="num_chords" min="3" max="8" value="4">
     
+    <label for="instrument">Instrument:</label>
+    <select name="instrument" id="instrument">
+        <option value="guitar" {% if instrument == "guitar" %}selected{% endif %}>Guitar</option>
+        <option value="piano" {% if instrument == "piano" %}selected{% endif %}>Piano</option>
+    </select>
+
     <button type="submit" class="button">Generate Progression</button>
 </form>
 <a href="{% url 'help' %}">Need Help?</a>
+
+
 
 {% if progression_data %}
 <h2>Generated Chord Progression</h2>
@@ -36,4 +46,64 @@
 <p><strong>Progression:</strong> {{ progression_data.progression|join:" - " }}</p>
 <p><strong>Chords:</strong> {{ progression_data.chords|join:", " }}</p>
 {% endif %}
+
+{% if progression_data %}
+<!-- Hide initially -->
+<div id="chord_section" style="display: none;">
+    <h3>Chord Diagrams</h3>
+    <div id="chord_diagrams">
+        {% for chord in progression_data.chords %}
+            <ins class="scales_chords_api" chord="{{ chord }}" instrument="{{ instrument }}" output="image" width="400px"></ins>
+        {% endfor %}
+    </div>
+
+    <h3>Chord Sounds</h3>
+    <div id="chord_sounds">
+        {% for chord in progression_data.chords %}
+            <ins class="scales_chords_api" chord="{{ chord }}" instrument="{{ instrument }}" output="sound" width="400px"></ins>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Show only if progression_data exists
+        if ("{{ progression_data }}" !== "True") {
+            document.getElementById("chord_section").style.display = "block";
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const randomizeButton = document.getElementById("randomize_button");
+        const tonicSelect = document.getElementById("tonic");
+        const genreSelect = document.getElementById("genre");
+
+        const notes = JSON.parse('{{ notes_json|escapejs }}');
+        const genres = JSON.parse('{{ genres_json|escapejs }}');
+
+
+        console.log("Notes array:", notes);
+        console.log("Genres array:", genres);
+
+        randomizeButton.addEventListener("click", function() {
+            if (notes.length > 0) {
+                tonicSelect.value = notes[Math.floor(Math.random() * notes.length)];
+            }
+            if (genres.length > 0) {
+                genreSelect.value = genres[Math.floor(Math.random() * genres.length)];
+            }
+        });
+    });
+</script>
+
+
+
+{% endif %}
+
+
+
+    
+
 {% endblock %}

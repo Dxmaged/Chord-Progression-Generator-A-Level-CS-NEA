@@ -1,19 +1,62 @@
 {% extends "base.html" %}  <!-- Inherit from your main layout if you have one -->
 
 {% block content %}
-<h1>How to Use the Chord Progression Generator?</h1>
+<div class="help-container">
+    <h1>How to Use the Chord Progression Generator</h1>
+    <p>Follow these steps to generate a chord progression:</p>
 
-<p>Follow these steps to generate a chord progression:</p>
+    <ol>
+        <li>Select a <strong>Tonic</strong> (the key of your progression).</li>
+        <li>Choose a <strong>Genre</strong> (Pop, Jazz, Rock, etc.).</li>
+        <li>Enter the <strong>Number of Chords</strong> you want (between 3 and 8).</li>
+        <li>Choose an <strong>Instrument</strong> to display the generated chords.</li>
+        <li>Click the <strong>Generate Progression</strong> button.</li>
+        <li>Your <strong>chord progression</strong> will appear below!</li>
+    </ol>
 
-<ol>
-    <li>Select a tonic (the key of your progression).</li>
-    <li>Choose a genre (Pop, Jazz, Rock, etc.).</li>
-    <li>Enter the number of chords you want (between 3 and 8).</li>
-    <li>Click the "Generate Progression" button.</li>
-    <li>Your chord progression will appear below!</li>
-</ol>
+    <hr>
 
-<p>Need more help? Contact us at <a href="mailto:dontcontactus@nigga.com">dontcontactus@nigga.com</a></p>
+    <h2>Understanding the Parameters</h2>
+    <p>Below is an explanation of each input parameter and the choices available.</p>
+
+    <h3>Tonic (Key)</h3>
+    <p>The <strong>tonic</strong> is the root note of your chord progression. It determines the overall key of your progression.</p>
+    <ul>
+        <li><strong>C:</strong> A bright and neutral key, commonly used in pop, classical, and electronic music.</li>
+        <li><strong>G:</strong> A common key in rock and folk, known for its open and natural sound.</li>
+        <li><strong>D:</strong> Frequently used in acoustic and folk music due to its bright tone.</li>
+        <li><strong>A:</strong> Used in blues, rock, and country music, giving a warm feel.</li>
+        <li><strong>E:</strong> A powerful key often used in rock, metal, and blues.</li>
+        <li><strong>F:</strong> Has a rich and warm character, often used in jazz and classical.</li>
+        <li><strong>B♭:</strong> Common in jazz and brass instruments, giving a mellow and smooth feel.</li>
+    </ul>
+
+    <h3>Genre</h3>
+    <p>The <strong>genre</strong> determines the type of chord progressions used. Each genre has a unique musical feel.</p>
+    <ul>
+        <li><strong>Pop:</strong> Pop music is characterized by catchy melodies, simple harmonies, and repetitive structures. Common progressions include <code>I - V - vi - IV</code>.</li>
+        <li><strong>Jazz:</strong> Jazz features complex harmonies and improvisation. It often uses progressions like <code>ii - V - I</code>.</li>
+        <li><strong>Blues:</strong> Blues is built on expressive phrasing and dominant chords. It commonly follows <code>I - IV - V</code>.</li>
+        <li><strong>Rock:</strong> Rock music is energetic and riff-driven, often using progressions like <code>I - IV - V</code>.</li>
+        <li><strong>Ballad:</strong> Ballads are slow, emotional songs using rich harmonies such as <code>i - VI - III - VII</code>.</li>
+        <li><strong>Flamenco:</strong> A Spanish folk style known for its dramatic minor progressions like <code>i - ♭II - ♭III</code>.</li>
+        <li><strong>Middle Eastern:</strong> This genre uses microtonal scales and exotic harmonies, often featuring <code>i - ♭II - ♭VII</code>.</li>
+        <li><strong>Dreamy:</strong> Dreamy music is atmospheric and ethereal, using progressions like <code>I - II - V - I</code>.</li>
+        <li><strong>Experimental:</strong> Experimental music pushes harmonic boundaries, often using dissonance and unexpected chord shifts like <code>i° - ♭II - iv</code>.</li>
+    </ul>
+
+    <h3>Number of Chords</h3>
+    <p>The <strong>number of chords</strong> determines how many chords appear in the generated progression.</p>
+    <ul>
+        <li><strong>3 chords:</strong> Simple and repetitive, commonly used in blues and folk.</li>
+        <li><strong>4 chords:</strong> The most common format in pop and rock songs.</li>
+        <li><strong>5-6 chords:</strong> Provides more variation, common in jazz and film music.</li>
+        <li><strong>7-8 chords:</strong> Longer progressions, often used in complex or cinematic music.</li>
+    </ul>
+
+    <hr>
+
+<p>Need more help? Contact us at <a href="mailto:dontcontactus@nigga.com">dontcontactus@pls.com</a></p>
 
 <a href="{% url 'homepage' %}">Back to Generator</a> <!-- Change 'home' to your actual homepage URL name -->
 

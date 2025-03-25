@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script async type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
 </head>
 <body>
     {% block content %} {% endblock content %}
+    <a href="{% url 'help' %}" class="help-button" title="Need Help?">?</a>
+
 </body>
 </html>

@@ -168,22 +168,23 @@ select + label {
 
 .help-button {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 20px;  /* Distance from the top */
+  right: 20px; /* Distance from the right */
   width: 40px;
   height: 40px;
-  background-color: #008CBA; /* Change this to any color you want */
+  background-color: #008CBA; /* Blue button */
   color: white;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   line-height: 40px;
-  border-radius: 50%; /* Makes it round */
+  border-radius: 50%; /* Makes it circular */
   text-decoration: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
+  z-index: 1000; /* Ensures it stays above other elements */
 }
 
 .help-button:hover {
-  background-color: #005f73; /* Darker shade on hover */
+  background-color: #005f73; /* Darker blue on hover */
 }
